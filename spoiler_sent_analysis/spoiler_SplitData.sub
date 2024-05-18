@@ -1,0 +1,23 @@
+universe = vanilla
+output = ./output/spoiler_split.out
+error = ./error/spoiler_split.err
+log = ./log/spoiler_split.log
+
+# Executable and arguments
+executable = run_spoiler.sh
+arguments = $(names)
+
+# Transfer the first .tgz file and the script
+transfer_input_files = http://proxy.chtc.wisc.edu/SQUID/chtc/el8/R413.tar.gz, packages.tar.gz, run_spoiler.sh, spoiler_reviews.csv, spoiler_split.R
+
+# Resource requirements (to be adjusted after initial run)
+request_cpus = 1
+request_memory = 4GB
+request_disk = 4GB
+
+# Transfer output file back to the submit directory
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+# Queue the job
+queue names from spoiler_books.txt

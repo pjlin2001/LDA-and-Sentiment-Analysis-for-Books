@@ -1,0 +1,7 @@
+job 1 spoiler_SplitData.sub
+job 2 spoiler_Sent.sub
+
+script pre 1 spoiler_pre.sh
+script post 2 spoiler_mv.sh
+
+parent 1 child 2
